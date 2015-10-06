@@ -1,0 +1,24 @@
+{
+  "name": "SenzAJS",
+  "description": "Senz Azure",
+  "version": "1.0.0",
+  "main": "main.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "author": {
+    "name": "Punit Ganshani",
+    "email": "punit.ganshani@gmail.com"
+  },
+  "dependencies": {
+      "johnny-five" : "latest",
+      "galileo-io" :"latest", 
+      "azure" : "latest",
+      "shelljs" :"latest",
+      "request" :"latest",
+      "node-uuid": "latest",
+      "crypto": "latest",
+      "moment" : "latest"
+
+  } 
+}
