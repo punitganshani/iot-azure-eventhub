@@ -19,3 +19,7 @@ Examples using Azure IoT Hub
 
 - Visual Studio 2015 (for `.NET`)
 - Visual Studio Code (for `NodeJS`)
+
+# Presentation
+
+- [View on Docs.com](https://docs.com/helen-jones/7729/punit-ganshani-collab365-session-resources)
