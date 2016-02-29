@@ -1,6 +1,6 @@
 # Internet of Things - Telemetry and Reliable Messaging 
 
-This repository contains samples (using `.NET` and `NodeJS`) for Collab365 session on Azure IoT - Telemetry and Reliable Messaging
+This repository contains samples (using `.NET` and `NodeJS`) to understand Azure IoT - Telemetry and Reliable Messaging
 
 ## Pre Azure IoT Suite
 
