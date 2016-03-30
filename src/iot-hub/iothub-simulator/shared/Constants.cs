@@ -8,17 +8,27 @@ namespace shared
 {
     public class Constants
     {
-        //const string ServiceBusConnectionStringFormat = @"Endpoint=sb://{0}.servicebus.windows.net/;SharedAccessKeyName={1};SharedAccessKey={2}";
-        //const string StorageConnectingStringFormat = @"DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}";
-        //public const string ConsumerHash = "OK8N2lDKZLYgAq2tBMg9I1Shan7SYPpUBeNDFcMxvzM=";
-        //public const string storageAccountName = "iotdb";
-        //public const string storageAccountKey = "C7tqYeoUH8WsW53UrMciUZ08LbG4uT9NBArwnUAf1Yqvuym1iL6JpmMFBIOLk/DDlQxCYx5dQOXOwwW7I/YilA==";
-        //public const string consumerKeyName = @"consumer";
-        //public const string consumerHash = "lxkPVRY/kVKi1NV/mz8q1YPVmOez5q9jlnOD2ELC28Y=";
-        //public const string DefaultBusName = "iot-bus";
-        public const string DefaultHubName = "iot-hub";
+        public const string DefaultHubName = "fl-iothub";
+        public const string ConnectionString = "HostName={0};SharedAccessKeyName={1};SharedAccessKey={2}";
 
-        public const string HubConnectionStringFormat= "HostName={0}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={1}";
-        public const string SharedOwnerAccessKey = "tweYUQyj3MN5qbTGB/qWtGnG5BA2G56mSzqz1V43gBc=";
+        public static string GetServiceString()
+        {
+            return String.Format(ConnectionString, GetHubName(), "service", "q4ElMfFhLF2rylihv0TiH0PsloriB1jcQyNRV1PKlZw=");
+        }
+
+        public static string GetRegistryWrite()
+        {
+            return String.Format(ConnectionString, GetHubName(), "registryReadWrite", "rQr78Ge21PT0R9P0PeOojp7gwhdDz1zLb23InT44t2Q="); 
+        }
+
+        public static string GetRegistryRead()
+        {
+            return String.Format(ConnectionString, GetHubName(), "registryRead", "IF7tU/cz6wxtx2m+wJNb+Co+ai4Jzs7a2WoMoOy0RIs=");
+        }
+
+        public static string GetHubName()
+        {
+            return DefaultHubName + ".azure-devices.net";
+        }
     }
 }

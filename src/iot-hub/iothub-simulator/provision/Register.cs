@@ -18,22 +18,22 @@ namespace provision
 
             if (!cmd.ContainsKey("name"))
             {
-                Console.WriteLine("Usage: -name ABC");
+                Console.WriteLine("Usage: -name=ABC");
                 // Console.ReadKey();
                 return;
             }
 
             var deviceName = cmd.GetValue("name", "Default");
-            var eventHubName = cmd.GetValue("hub", Constants.DefaultHubName);
+            
             var original = Console.ForegroundColor;
-            RegisterDevice(deviceName, eventHubName).Wait();
+            RegisterDevice(deviceName).Wait();
             Console.ForegroundColor = original;
             Console.ReadKey();
         }
 
-        private static async Task RegisterDevice(string deviceName, string hubName)
+        private static async Task RegisterDevice(string deviceName)
         {
-            var connectionString = "HostName=iot-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=tweYUQyj3MN5qbTGB/qWtGnG5BA2G56mSzqz1V43gBc=";
+            var connectionString = Constants.GetRegistryWrite();
             var registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 
             Device device;

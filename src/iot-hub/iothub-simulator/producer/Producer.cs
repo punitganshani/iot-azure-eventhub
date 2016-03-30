@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.Threading;
 using shared.core;
 using shared.Messages;
+using shared;
 
 namespace producer
 {
@@ -19,7 +20,7 @@ namespace producer
 
             if (!cmd.ContainsKey("token") || !cmd.ContainsKey("name"))
             {
-                Console.WriteLine("Usage: -name ABC -token ALPHA");
+                Console.WriteLine("Usage: -name=ABC -token=ALPHA");
                 Console.ReadLine();
                 return;
             }
@@ -37,7 +38,7 @@ namespace producer
         static void SendingRandomMessages(string deviceName, string token)
         {
             // No need of SAS token for producer
-            var deviceClient = DeviceClient.Create("iot-hub.azure-devices.net", 
+            var deviceClient = DeviceClient.Create(Constants.GetHubName(), 
                         new DeviceAuthenticationWithRegistrySymmetricKey(deviceName, token));
 
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -76,7 +77,7 @@ namespace producer
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine(dataString);
 
-                    Thread.Sleep(500);
+                    Thread.Sleep(1000);
                 }
                 catch (Exception exception)
                 {

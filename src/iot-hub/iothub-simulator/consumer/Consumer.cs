@@ -8,6 +8,7 @@ using Microsoft.Azure.Devices.Common.Exceptions;
 using Microsoft.Azure.Devices.Common;
 using Microsoft.ServiceBus.Messaging;
 using shared.core;
+using shared;
 
 namespace consumer
 {
@@ -23,7 +24,7 @@ namespace consumer
 
         private async static Task ReceiveMessages()
         {
-            string connectionString = "HostName=iot-hub.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=bu0ihGbPswiXEcTKF94HY1+zeXMyq+/JAuAt40qbMwc=";
+            string connectionString = Constants.GetServiceString();
             string iotHubD2cEndpoint = "messages/events";
             Console.WriteLine("Receive messages\n");
             var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, iotHubD2cEndpoint);
